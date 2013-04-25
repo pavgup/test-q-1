@@ -60,7 +60,7 @@ module VerveMobileTest
     config.assets.version = '1.0'
 
     # VerveMobileTest VAT Constant Defined Here
-    config.vat = '0.2'
+    config.vat = 0.2
 
   end
 end

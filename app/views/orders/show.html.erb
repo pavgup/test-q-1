@@ -27,5 +27,15 @@
   <% end %>
 </p>
 
+<p>
+  <b>Net Total:</b><br/>
+  <%= @net_total %><br/>
+</p>
+
+<p>
+  <b>Gross Total:</b><br/>
+  <%= @gross_total %><br/>
+</p>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

@@ -17,7 +17,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @line_item }
+      format.json { render :json => { :line_item => @line_item, :product => @line_item.product } }
     end
   end
 

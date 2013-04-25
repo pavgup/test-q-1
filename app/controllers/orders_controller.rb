@@ -15,9 +15,18 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
 
+    @net_total = 0
+    @gross_total = 0
+
+    @order.line_item.each do |line| 
+      @net_total += line.product.price
+    end
+
+    @gross_total = @net_total + @net_total * ::Rails.application.config.vat.to_d 
+    
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @order }
+      format.json { render :json => { :order => @order, :line_items => @order.line_item, :net => @net_total, :gross => @gross_total } }
     end
   end
 
